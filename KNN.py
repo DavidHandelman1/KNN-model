@@ -1,5 +1,6 @@
 import pandas as pd
-import numpy as np
+import seaborn as sns
+import matplotlib.pyplot as plt
 import matplotlib.pyplot as plt
 from sklearn.model_selection import train_test_split, RandomizedSearchCV
 from sklearn.preprocessing import OneHotEncoder, StandardScaler
@@ -114,4 +115,14 @@ plt.ylabel('True Positive Rate')
 plt.title('ROC Curve - Test Set')
 plt.legend(loc='lower right')
 plt.grid(True)
+plt.show()
+
+plt.figure(figsize=(10, 6))
+sns.countplot(data=df, x='control', hue='is_top10')
+plt.title('Control Type vs Top 10% Status')
+plt.xlabel('Control Type')
+plt.ylabel('Count')
+plt.legend(title='Top 10%')
+plt.xticks(rotation=45)
+plt.tight_layout()
 plt.show()
